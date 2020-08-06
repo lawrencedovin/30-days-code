@@ -5,3 +5,10 @@ function solve(meal_cost, tip_percent, tax_percent) {
 }
 
 console.log(solve(12, 20, 8));
+
+let lawrence = {
+    name: "lawrence dovin",
+    age: 27
+}
+
+console.log(Object.entries(lawrence));
