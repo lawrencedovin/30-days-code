@@ -2,7 +2,7 @@ function processData(input) {
     let inputArr = input.split('\n').slice(1);
     //Stores each string into an array separated by a new line, slice skips over the 2
     console.log(inputArr);
-    inputCopy.forEach((str) => {
+    inputArr.forEach((str) => {
         // forEach string inside the inputArray
         let even = [];
         let odd = [];
