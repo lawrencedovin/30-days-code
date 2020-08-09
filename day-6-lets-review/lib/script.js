@@ -1,6 +1,9 @@
 function processData(input) {
-    let inputCopy = input.split('\n').slice(1);
+    let inputArr = input.split('\n').slice(1);
+    //Stores each string into an array separated by a new line, slice skips over the 2
+    console.log(inputArr);
     inputCopy.forEach((str) => {
+        // forEach string inside the inputArray
         let even = [];
         let odd = [];
 
@@ -11,4 +14,4 @@ function processData(input) {
     });
 } 
 
-console.log(processData("Hacker"));
+console.log(processData("2\nHacker\nRank"));
