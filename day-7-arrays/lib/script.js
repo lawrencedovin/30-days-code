@@ -1,17 +1,33 @@
-function processData(input) {
-    let inputArr = input.split('\n').slice(1);
-    //Stores each string into an array separated by a new line, slice skips over the 2
-    console.log(inputArr);
-    inputArr.forEach((str) => {
-        // forEach string inside the inputArray
-        let even = [];
-        let odd = [];
+'use strict';
 
-        for(let i = 0; i < str.length; i++) {
-            i == 0 || i % 2 == 0 ? even.push(str[i]) : odd.push(str[i]);
-        }
-        console.log(even.join('') + " " + odd.join(''));
-    });
-} 
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
 
-console.log(processData("2\nHacker\nRank"));
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', inputStdin => {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', _ => {
+    inputString = inputString.replace(/\s*$/, '')
+        .split('\n')
+        .map(str => str.replace(/\s*$/, ''));
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+
+
+function main() {
+    const n = parseInt(readLine(), 10);
+
+    const arr = readLine().split(' ').map(arrTemp => parseInt(arrTemp, 10));
+    
+    console.log(arr.reverse().join(" "));
+}
