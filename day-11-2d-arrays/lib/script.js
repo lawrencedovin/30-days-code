@@ -1,50 +1,33 @@
-// function binaryCalc(n) {
-//     let arr = [];
-//     while(n >= 1){
-//         arr.unshift(binaryEvenOdd(n));
-//         n = Math.floor(n / 2);
-//         binaryEvenOdd(n);
-//     }
-//     return consecutiveOnes(arr);
-//     // return(arr);
-// }
+let arr = [
+    [1,1,1,0,0,0],
+    [0,1,0,0,0,0],
+    [1,1,1,0,0,0],
+    [0,0,2,4,4,0],
+    [0,0,0,2,0,0],
+    [0,0,1,2,4,0]
+];
 
-// function binaryEvenOdd(n) {
-//     return n % 2 == 0 ? 0 : 1;
-// }
-
-// function consecutiveOnes(n) {
-//     let j = 0;
-//     for (let i = 0; i < n.length; i++) {
-//         if(n[i] == 0){
-//             return j;
-//         }
-//         j++;
-//     }
-// }
-
-function binaryCalc(n) {
-    let count = 0;
-    let max = 0;
-    let binary = 0;
-    while(n > 0){
-        evenOddRemainder(n) === 1 ? count++ : count = 0;
-        
-        if(count > max) {
-            max = count;
+function maxHourglassSum(arr){
+    //setting maxSum initially to -63 because that is lowest possible outcome for hourglass.
+    //-9 -9 -9
+    //   -9
+    //-9 -9 -9
+    // = -63
+    var maxSum = -63;
+    var tempSum = 0;
+    for(let i = 0; i < 4; i++) {
+        for(let j = 0; j < 4; j++) {           
+            tempSum = arr[i][j] + arr[i][j+1] + arr[i][j+2] + 
+                                  arr[i+1][j+1] + 
+                      arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2];
+            if(tempSum > maxSum) {
+                maxSum = tempSum;           
+            }
         }
-
-        binary = evenOddRemainder(n) + binary;
-        n = Math.floor(n / 2);
     }
-
-    console.log(max);
+    console.log(maxSum);
 }
 
-
-function evenOddRemainder(n) {
-    return n % 2 == 0 ? 0 : 1;
-}
-
-
-console.log(binaryCalc(16));
+console.table(arr);
+console.log(arr.length);
+maxHourglassSum(arr);
