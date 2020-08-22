@@ -22,14 +22,14 @@ this.insert = (head,data) =>
         {
             while (curNode.next != null)
             {
-                let curNode = curNode.next;
+                curNode = curNode.next;
             }
             curNode.next = newNode;
         }
         // Otherwise, if the list is empty, return the created node
         else
         {
-            let head = newNode;
+            head = newNode;
         }
     
         return head;
